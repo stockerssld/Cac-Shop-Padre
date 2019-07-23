@@ -4,4 +4,8 @@ class WelcomeController < ApplicationController
 
   def unregistered
   end
+
+  def admin
+    render layout: "admin"
+  end
 end

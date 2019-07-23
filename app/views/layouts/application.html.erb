@@ -13,12 +13,12 @@
       <div style="<%="display:none" if alert.nil? && notice.nil?%>">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-        <%-if user_signed_in?%>
+      </div>
+      <%-if user_signed_in?%>
         <%= render  "components/Navbar/Nav" %>      
       <%-else%>
         <%= render  "components/Navbar/UnNav" %>
       <%end%>
-      </div>
     <%= yield %>
   </body>
 </html>
