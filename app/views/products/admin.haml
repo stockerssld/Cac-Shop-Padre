@@ -23,3 +23,18 @@
                         .column
                             =link_to @product, method: :delete,"data-confirm": "¿Estas seguro de eliminar este producto?" do
                                 Eliminar producto
+                    %div
+                        %h4.subtitle.is-4 Archivos
+                        %ol
+                            -@product.attachments.each do |a|
+                                %li
+                                    .columns
+                                        .column.is-11
+                                            = a.archivo_file_name
+                                        .column
+                                            =link_to a, method: :delete, "data.-confirm": "¿Estás seguro de eliminar este archivo?" do
+                                                X
+
+
+
+                        =render "attachments/form", product_id: @product.id

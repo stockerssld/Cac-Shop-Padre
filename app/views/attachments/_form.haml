@@ -1,0 +1,13 @@
+= form_for @attachment do |f|
+  - if @attachment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@attachment.errors.count, "error")} prohibited this product from being saved:"
+      %ul
+        - @attachment.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.hidden_field :product_id, value: product_id
+    = f.file_field :archivo
+  .actions
+    = f.submit 'Save'

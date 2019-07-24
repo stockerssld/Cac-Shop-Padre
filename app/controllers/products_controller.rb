@@ -12,6 +12,8 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     if user_signed_in? && current_user == @product.user && !params.has_key?(:client)
+      @attachment = Attachment.new
+      
       render :admin
     end
   end
@@ -29,7 +31,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
 
-    @product = current_user.productS.new(product_params)
+    @product = current_user.products.new(product_params)
     # @product.user = current_user
     respond_to do |format|
       if @product.save
