@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-  get 'welcome/unregistered'
-  get 'welcome/admin'
-  get 'welcome/admin'
+  # get 'attachments/create'
+  # get 'attachments/destroy'
+  # get 'attachments/new'
+  # get 'welcome/index'
+  # get 'welcome/unregistered'
+  # get 'welcome/admin'
+  # get 'welcome/admin'
+  resources :attachments, only: [:create,:destroy, :new]
   resources :products
   devise_for :users
   # get 'welcome/index'
@@ -17,7 +21,7 @@ Rails.application.routes.draw do
   end
   unauthenticated :user do
     devise_scope :user do 
-      root to: "welcome#admin"
+      root to: "welcome#unregistered"
     end
   end
 end

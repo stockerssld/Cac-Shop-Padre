@@ -1,0 +1,25 @@
+.columns
+    .column 
+        %h1.title
+            Administrador General
+    .column.is-two-thirds
+        .box
+            .columns
+                .column.is-two-thirds
+                    %h4.subtitle.is-4
+                        = @product.name
+                .column 
+                    %h4.subtitle.is-4
+                        = "$#{@product.pricing }MXN"
+            %section.section
+                .container
+                    .columns
+                        .column
+                            =link_to product_path(id: @product.id, client:true) do
+                                Ver como Cliente
+                        .column
+                            = link_to edit_product_path(@product) do
+                                Editar Producto
+                        .column
+                            =link_to @product, method: :delete,"data-confirm": "¿Estas seguro de eliminar este producto?" do
+                                Eliminar producto
