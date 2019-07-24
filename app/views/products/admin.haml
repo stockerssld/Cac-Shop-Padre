@@ -26,13 +26,13 @@
                     %div
                         %h4.subtitle.is-4 Archivos
                         %ol
-                            -@product.attachments.each do |a|
+                            -@product.attachments.each do |attachment|
                                 %li
                                     .columns
                                         .column.is-11
-                                            = a.archivo_file_name
+                                            = link_to attachment.archivo_file_name, attachment
                                         .column
-                                            =link_to a, method: :delete, "data.-confirm": "¿Estás seguro de eliminar este archivo?" do
+                                            =link_to attachment, method: :delete, "data.-confirm": "¿Estás seguro de eliminar este archivo?" do
                                                 X
 
 

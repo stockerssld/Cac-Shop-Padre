@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # get 'welcome/unregistered'
   # get 'welcome/admin'
   # get 'welcome/admin'
-  resources :attachments, only: [:create,:destroy, :new]
+  resources :attachments, only: [:create,:destroy, :new, :show]
   resources :products
   devise_for :users
   # get 'welcome/index'
