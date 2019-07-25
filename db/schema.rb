@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_23_235408) do
+ActiveRecord::Schema.define(version: 2019_07_25_132419) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer "product_id"
@@ -23,18 +23,47 @@ ActiveRecord::Schema.define(version: 2019_07_23_235408) do
     t.index ["product_id"], name: "index_attachments_on_product_id"
   end
 
+  create_table "in_shopping_carts", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "shopping_cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_in_shopping_carts_on_product_id"
+    t.index ["shopping_cart_id"], name: "index_in_shopping_carts_on_shopping_cart_id"
+  end
+
+  create_table "my_payments", force: :cascade do |t|
+    t.string "email"
+    t.string "ip"
+    t.string "status"
+    t.decimal "fee", precision: 6, scale: 2
+    t.string "paypal_id"
+    t.decimal "total", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "shopping_cart_id"
+    t.index ["shopping_cart_id"], name: "index_my_payments_on_shopping_cart_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.decimal "pricing", precision: 10, scale: 2
+    t.integer "pricing"
     t.text "description"
     t.integer "user_id"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
-    t.bigint "avatar_file_size"
+    t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "shopping_carts", force: :cascade do |t|
+    t.string "status", default: "0"
+    t.string "ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -8,10 +8,17 @@
       %span{"aria-hidden" => "true"}
   #navbarShop.navbar-menu
     .navbar-start
-      %a.navbar-item
+      = link_to root_path, class:"navbar-item" do
         Home
-      %a.navbar-item
-        Documentation
-        = link_to('profiles', "/profiles")
+      = link_to "",  class:"navbar-item" do
+        Ordenes
+      = link_to "",  class:"navbar-item" do
+        Descuentos
+      = link_to carrito_path, class:"navbar-item" do
+        %i
+        Mi Carrito
+        (
+        = @shopping_cart.products.count
+        )
     .navbar-end
       = link_to('Cerrar Sesión', destroy_user_session_path, method: :delete, class:"navbar-item")

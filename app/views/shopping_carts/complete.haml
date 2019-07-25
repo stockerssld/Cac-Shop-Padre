@@ -1,0 +1,26 @@
+-# .box
+-#     %table.table
+-#         %thead
+-#         %tfoot
+-#         %tbody
+-#             %tr
+-#                 %td
+.box{style: "width:100%" }
+    %h1 gracias por adquerir tus productos
+    %table.table.is-fullwidth
+        %thead
+            %td Producto
+            %td Costo
+            %td Acciones
+        %tbody
+            -@shopping_cart.in_shopping_carts.each do |shop|
+                -product = shop.product
+                %tr{id: "#{product.id}"}
+                    %td=product.name
+                    %td=product.pricing
+                    %td Eliminar       
+        
+    .tile
+        %b
+            Total: $
+            =@shopping_cart.total

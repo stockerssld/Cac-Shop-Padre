@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.0.5)
+      concurrent-ruby (~> 1.0)
     actioncable (5.2.3)
       actionpack (= 5.2.3)
       nio4r (~> 2.0)
@@ -44,6 +46,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    annotate (2.7.5)
+      activerecord (>= 3.2, < 7.0)
+      rake (>= 10.4, < 13.0)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -326,6 +331,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
+  annotate
   bootsnap (>= 1.1.0)
   bulma-sass (~> 0.7.5.1)
   bulmajs-rails

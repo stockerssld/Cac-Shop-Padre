@@ -1,8 +1,8 @@
 test: &default
 
   # Credentials for REST APIs
-  client_id: EBWKjlELKMYqRNQ6sYvFo64FtaRLRR5BdHEESmha49TM
-  client_secret: EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM
+  client_id: Aeg2dnWMf0Y795MhAlV4LKGJqxcxtxkr-1SoQK948dTqTSBZbCcDedu-dhwp6fmGz_x9FV1Rr_0Wmf9p
+  client_secret: EL_t7UUzUv6zFMP-7ZQmhbQ-i6PmZKcqQHFun_Q2vtwLbaPc2UVdAXJgHUTIoClRZBnVIH4ojsTKkYRH
 
   # Mode can be 'live' or 'sandbox'
   mode: sandbox
@@ -14,7 +14,7 @@ test: &default
   signature: AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy
   # # With Certificate
   # cert_path: "config/cert_key.pem"
-  sandbox_email_address: Platform.sdk.seller@gmail.com
+  sandbox_email_address: padre_gpaj@protonmail.com
 
   # # IP Address
   # ip_address: 127.0.0.1

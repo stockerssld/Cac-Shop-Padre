@@ -22,8 +22,8 @@
           %h4.subtitle.is-4
             Tamaño:
             %span "2gb"
-      
-
+          -# = render(:partial => "in_shopping_carts/form", product: @product )      
+          = render 'in_shopping_carts/form', product: @product
     %section.section
       .container
         %h1.title Descripción

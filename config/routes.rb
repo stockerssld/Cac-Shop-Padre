@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # get 'payments/create'
   # get 'attachments/create'
   # get 'attachments/destroy'
   # get 'attachments/new'
@@ -8,7 +9,13 @@ Rails.application.routes.draw do
   # get 'welcome/admin'
   resources :attachments, only: [:create,:destroy, :new, :show]
   resources :products
+  resources :in_shopping_carts, only: [:create, :destroy]
   devise_for :users
+
+  get "/carrito", to: "shopping_carts#show"
+  get "/add/:product_id", as: :add_to_cart, to: "in_shopping_carts#create"
+  post "/pagar", to: "payments#create"
+  get "/checkout", to: "payments#checkout"
   # get 'welcome/index'
   # get 'welcome/unregistered'
   # get "welcome/admin"
