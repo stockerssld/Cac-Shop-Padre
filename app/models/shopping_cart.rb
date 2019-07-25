@@ -15,21 +15,7 @@ class ShoppingCart < ApplicationRecord
     has_many :in_shopping_carts
     has_many :products,  through: :in_shopping_carts
 
-
-    aasm column:"status" do
-        state :created, initial: true
-        state :payed
-        state :failed
-
-        event :pay do
-            after do
-                # TODO: mandar archivos que compro usuario
-
-            end
-            transitions from: :created, to: :payed
-        end
-    end
-
+    enum status: {payed: 1, default: 0}
     def total
         products.sum(:pricing)
     end

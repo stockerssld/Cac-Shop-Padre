@@ -8,7 +8,7 @@ class PaymentsController < ApplicationController
         else
           payment = Payment.find(@my_payment.paypal_id)
           if payment.execute(payer_id: params[:PayerID])
-            @my_payment.pay!
+            # @my_payment.pay!
             redirect_to carrito_path, notice: "Se proceso el pago con paypal"
           else
             redirect_to carrito_path, notice: "Hubo un error al procesar el pago"

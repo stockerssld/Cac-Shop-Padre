@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2019_07_25_132419) do
   end
 
   create_table "shopping_carts", force: :cascade do |t|
-    t.string "status", default: "0"
+    t.integer "status", default: 0
     t.string "ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

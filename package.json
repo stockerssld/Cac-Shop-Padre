@@ -4,5 +4,9 @@
   "dependencies": {
     "bulmaswatch": "^0.7.2",
     "jquery": "^3.4.1"
+  },
+  "scripts":{
+    "db":"rails db:drop && rails db:create && rails db:migrate",
+    "start":"rails s"
   }
 }
