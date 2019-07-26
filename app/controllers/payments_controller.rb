@@ -23,8 +23,8 @@ class PaymentsController < ApplicationController
       :payer =>  {
         :payment_method =>  "paypal" },
       :redirect_urls => {
-        :return_url => "http://localhost:3000/checkout",
-        :cancel_url => "http://localhost:3000/" },
+        :return_url => "http://192.168.0.109:3000//checkout",
+        :cancel_url => "http://192.168.0.109:3000/" },
       :transactions =>  [{
         :item_list => {
           :items => [{

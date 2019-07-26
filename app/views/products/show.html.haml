@@ -6,9 +6,10 @@
     %section.section
       .columns
         .column(style="text-align: center")
-          =image_tag @product.avatar.url
-          -# %h4.subtitle.is-4
-          -#   Producto
+          %figure.image
+            %center
+              =image_tag @product.avatar.url, :style=>"height:100%; width: 50%;"
+          
         .column
           %h4.subtitle.is-4
             =@product.user.email
@@ -27,6 +28,7 @@
     %section.section
       .container
         %h1.title Descripción
+        %br
         %h2.subtitle
           =@product.description
   -# %p#notice= notice

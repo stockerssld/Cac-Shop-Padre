@@ -17,7 +17,19 @@ RSpec.describe ShoppingCart, type: :model do
       shopping_cart = FactoryBot.create(:shopping_cart)
       # shopping_cart.payed!
       puts shopping_cart.status
-      expect(shopping_cart.status).to be_truthy
+      expect(shopping_cart.payed?).to be_truthy
+    end
+  end
+
+  describe  "#total" do
+    it "returns the total cost of the shopping_cart"do 
+      shopping_cart = FactoryBot.create(:shopping_cart)
+      products = FactoryBot.create_list(:product,5)
+      products.each do |product|
+        FactoryBot.create(:in_shopping_cart,product: product, shopping_cart: shopping_cart)
+      end
+
+      expect(shopping_cart.total).to eq(products.first.pricing * 5)
     end
   end
 end

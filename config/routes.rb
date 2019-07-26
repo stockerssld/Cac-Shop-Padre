@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get "/carrito", to: "shopping_carts#show"
   get "/add/:product_id", as: :add_to_cart, to: "in_shopping_carts#create"
+  
   post "/pagar", to: "payments#create"
   get "/checkout", to: "payments#checkout"
 

@@ -11,7 +11,7 @@
 
 FactoryBot.define do
   factory :shopping_cart do
-    status { 0 }
+    status { 1 }
     ip { "127.0.0.1" }
   end
 end

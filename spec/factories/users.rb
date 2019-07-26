@@ -14,7 +14,8 @@
 
 FactoryBot.define do
   factory :user do
-    email {"padre_japg@protonmail.com"}
+    # email {"padre_japg@protonmail.com"}
+    sequence(:email) { |n| "padre_japg#{n}@protonmail.com" }
     password {"127ad127"}
     password_confirmation {"127ad127"}
   end
