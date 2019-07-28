@@ -10,15 +10,28 @@
     .navbar-start
       = link_to root_path, class:"navbar-item" do
         Home
-      = link_to "",  class:"navbar-item" do
-        Ordenes
-      = link_to "",  class:"navbar-item" do
-        Descuentos
-      = link_to carrito_path, class:"navbar-item" do
-        %i
-        Mi Carrito
-        (
-        = @shopping_cart.products.count
-        )
+      = link_to about_path, class:"navbar-item" do
+        Acerca de Nosotros
+      
+      .navbar-item.has-dropdown.is-hoverable
+        %a.navbar-link
+          Ver más
+        .navbar-dropdown
+          = link_to "",  class:"navbar-item" do
+            Ordenes
+          = link_to "",  class:"navbar-item" do
+            Descuentos
+          = link_to carrito_path, class:"navbar-item" do
+            %i
+            Mi Carrito
+            (
+            = @shopping_cart.products.count
+            )
     .navbar-end
       = link_to('Cerrar Sesión', destroy_user_session_path, method: :delete, class:"navbar-item")
+
+
+
+
+
+      

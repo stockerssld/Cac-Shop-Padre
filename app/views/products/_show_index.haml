@@ -4,17 +4,20 @@
         - @products.each do |product|
             .column
                 %center
-                    .card{:style=>"height:50%; width: 50%;"}
-                        .card-image
-                            %figure.image.is-square
-                                =image_tag product.avatar.url, :style=>"height:100%; width: 100%;",alt:"#{product.name}"
-                        .card-content
-                            .media-content
-                                %center
-                                    %p.title.is-4 
-                                        = product.name
+                    .card{:style=>"height:50%; width: 45%;"}
                         .container
-                            =link_to product_path(product, client:true),class: "button is-success" do
-                                Ver producto
-                        %br/
-  
+                            %figure.image.is-square{:style=>"height:50%; width: 100%;"}
+                                =image_tag product.avatar.url, :style=>"height:75%; width: 100%;",alt:"#{product.name}"
+                            .card-content
+                                .media-content
+                                    %center
+                                        %p.title.is-4 
+                                            = product.name
+                                precio:
+                                %span
+                                    ="$#{product.pricing}"
+                            .container
+                                =link_to product_path(product, client:true),class: "button is-success" do
+                                    Ver producto
+                            %br/
+    
