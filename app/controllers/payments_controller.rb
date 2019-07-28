@@ -44,9 +44,9 @@ class PaymentsController < ApplicationController
                                 shopping_cart_id: cookies[:shopping_cart_id])
       redirect_to payment.links.find{|v| v.method =="REDIRECT"}.href
     else
-      redirect_to root_url, notice: payment.error
+      # redirect_to root_url, notice: payment.error
     #   redirect_to payment.links.find{|v| v.method =="REDIRECT"}.href
-      # raise  payment.error.to_yaml
+      raise  payment.error.to_yaml
     end
   end
 end

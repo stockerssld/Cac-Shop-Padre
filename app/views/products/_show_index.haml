@@ -1,0 +1,20 @@
+.container
+    %br
+    .columns.is-multiline.centered{:style => "height:100%; width: 100%;"}
+        - @products.each do |product|
+            .column
+                %center
+                    .card{:style=>"height:50%; width: 50%;"}
+                        .card-image
+                            %figure.image.is-square
+                                =image_tag product.avatar.url, :style=>"height:100%; width: 100%;",alt:"#{product.name}"
+                        .card-content
+                            .media-content
+                                %center
+                                    %p.title.is-4 
+                                        = product.name
+                        .container
+                            =link_to product_path(product, client:true),class: "button is-success" do
+                                Ver producto
+                        %br/
+  

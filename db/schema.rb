@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_25_025614) do
+ActiveRecord::Schema.define(version: 2019_07_28_022722) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer "product_id"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 2019_07_25_025614) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_attachments_on_product_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "in_shopping_carts", force: :cascade do |t|
@@ -56,6 +62,8 @@ ActiveRecord::Schema.define(version: 2019_07_25_025614) do
     t.datetime "avatar_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
