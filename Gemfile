@@ -6,6 +6,8 @@ ruby '2.6.3'
 gem 'bootstrap'
 gem 'jquery-rails'
 
+gem 'toastr-rails'
+
 gem "devise"
 
 

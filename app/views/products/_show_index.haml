@@ -6,7 +6,7 @@
         .columns.is-multiline
             - @products.each do |product|
                 .column.is-one-quarter
-                    .card
+                    .card{'data-aos':"fade-left"}
                         .card-image
                             %figure.image.is-2by2
                                 =image_tag product.avatar.url, :style=>"height:252px; width: 100%;",alt:"#{product.name}"
@@ -22,4 +22,4 @@
                                     = product.description
                                 =link_to product_path(product, client:true),class: "button is-success" do
                                     Ver Producto
-                
+               

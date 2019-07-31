@@ -10,10 +10,7 @@
   </head>
 
   <body>
-      <div style="<%="display:none" if alert.nil? && notice.nil?%>">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </div>
+    <%= render  "components/toast/toast" %>
       <%-if user_signed_in?%>
         <%= render  "components/Navbar/Nav" %>      
       <%-else%>
