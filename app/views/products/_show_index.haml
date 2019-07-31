@@ -6,8 +6,8 @@
         .columns.is-multiline
             - @products.each do |product|
                 .column.is-one-quarter
-                    .card{'data-aos':"fade-left"}
-                        .card-image
+                    .card{'data-aos':"fade-left",'data-aos-anchor-placement':"top-center"}
+                        .card-image 
                             %figure.image.is-2by2
                                 =image_tag product.avatar.url, :style=>"height:252px; width: 100%;",alt:"#{product.name}"
                         .card-content.media-content{style: "text-align:center"}
