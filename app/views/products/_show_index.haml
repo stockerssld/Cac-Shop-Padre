@@ -1,23 +1,25 @@
 .container
+    :javascript
+        AOS.init();
     %br
-    .columns.is-multiline.centered{:style => "height:100%; width: 100%;"}
-        - @products.each do |product|
-            .column
-                %center
-                    .card{:style=>"height:50%; width: 45%;"}
-                        .container
-                            %figure.image.is-square{:style=>"height:50%; width: 100%;"}
-                                =image_tag product.avatar.url, :style=>"height:75%; width: 100%;",alt:"#{product.name}"
-                            .card-content
-                                .media-content
-                                    %center
-                                        %p.title.is-4 
-                                            = product.name
-                                precio:
-                                %span
+    .container
+        .columns.is-multiline
+            - @products.each do |product|
+                .column.is-one-quarter
+                    .card
+                        .card-image
+                            %figure.image.is-2by2
+                                =image_tag product.avatar.url, :style=>"height:252px; width: 100%;",alt:"#{product.name}"
+                        .card-content.media-content{style: "text-align:center"}
+                            %p.title.is-4
+                                =product.name
+                            %p.subtitle.is-6
+                                Precio: 
+                                %samll
                                     ="$#{product.pricing}"
-                            .container
+                            .container{  style:"word-wrap: break-word;"}
+                                %p.crop-text-1
+                                    = product.description
                                 =link_to product_path(product, client:true),class: "button is-success" do
-                                    Ver producto
-                            %br/
-    
+                                    Ver Producto
+                

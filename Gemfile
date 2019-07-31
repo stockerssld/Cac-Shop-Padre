@@ -2,11 +2,16 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
-gem 'bulma-sass', '~> 0.7.5.1'
 
-gem 'bulmajs-rails'
+gem 'bootstrap'
+gem 'jquery-rails'
+
 gem "devise"
+
+
 gem 'rails_admin'
+
+gem 'bulma-sass', '~> 0.7.5.1'
 
 gem 'omniauth-facebook'
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
