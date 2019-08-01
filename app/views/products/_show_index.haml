@@ -3,23 +3,34 @@
         AOS.init();
     %br
     .container
-        .columns.is-multiline
-            - @products.each do |product|
-                .column.is-one-quarter
-                    .card{'data-aos':"fade-left",'data-aos-anchor-placement':"top-center"}
-                        .card-image 
-                            %figure.image.is-2by2
-                                =image_tag product.avatar.url, :style=>"height:252px; width: 100%;",alt:"#{product.name}"
-                        .card-content.media-content{style: "text-align:center"}
-                            %p.title.is-4
-                                =product.name
-                            %p.subtitle.is-6
-                                Precio: 
-                                %samll
-                                    ="$#{product.pricing}"
-                            .container{  style:"word-wrap: break-word;"}
-                                %p.crop-text-1
-                                    = product.description
-                                =link_to product_path(product, client:true),class: "button is-success" do
-                                    Ver Producto
-               
+        %center.box
+            .columns
+                .column.is-four-fifths
+                    %h1.title Nuestros productos
+                .column
+                    -# = link_to root_path, class:"button is-info" do
+                        Contactanos
+                    -# = render(:partial => "components/helpers/modal")        
+        .jumbotron
+            .columns.is-multiline
+                - @products.each do |product|
+                    - unless @products.nil?
+                        .column.is-one-quarter{'data-aos':"fade-up",'data-aos-anchor-placement':"top-center"}
+                            .card
+                                .card-image 
+                                    %figure.image.is-2by2
+                                        =image_tag product.avatar.url, :style=>"height:252px; width: 100%;",alt:"#{product.name}"
+                                .card-content.media-content{style: "text-align:center"}
+                                    %p.title.is-4
+                                        =product.name
+                                    %p.subtitle.is-6
+                                        Precio: 
+                                        %samll
+                                            ="$#{product.pricing}"
+                                    .container{  style:"word-wrap: break-word;"}
+                                        %p.crop-text-1
+                                            = product.description
+                                        =link_to product_path(product, client:true),class: "button is-success" do
+                                            Ver Producto
+                    - else
+                        No hay productos

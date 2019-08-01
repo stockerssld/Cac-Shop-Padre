@@ -1,27 +1,75 @@
-%h1 Nuestros productos
+.container
+    :javascript
+        AOS.init();
+    %br
+    .container
+        %center.box
+            .columns
+                .column.is-four-fifths
+                    %h1.title Tus productos 
+                .column
+                    = link_to new_product_path, class:"button is-info" do
+                        Nuevo Producto
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Pricing
-      %th Description
-      %th User
-      %th
-      %th
-      %th
+        .jumbotron
+            
+            .columns.is-multiline
+                - @products.each do |product|
+                    - unless @products.nil?
+                        .column.is-one-third
+                            .card{'data-aos':"fade-left",'data-aos-anchor-placement':"top-center"}
+                                .card-image 
+                                    %figure.image.is-2by2
+                                        =image_tag product.avatar.url, :style=>"height:252px; width: 100%;",alt:"#{product.name}"
+                                .card-content.media-content{style: "text-align:center"}
+                                    %p.title.is-4
+                                        =product.name
+                                    %p.subtitle.is-6
+                                        Precio: 
+                                        %samll
+                                            ="$#{product.pricing}"
+                                    .container{  style:"word-wrap: break-word;"}
+                                        = product.user.email
+                                        %p.crop-text-1
+                                            = product.description
+                                    
+                                    .columns
+                                        .column
+                                            = link_to product,class: "button is-success" do
+                                                Ver Producto
+                                    .columns
+                                        .column
+                                            = link_to  edit_product_path(product), class: "button is-info" do    
+                                                Editar Producto
+                                        .column
+                                            = link_to product, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger" do
+                                                Eliminar Producto
+                                        
+                    - else
+                        No hay productos
+-# %h1 Tus productos
 
-  %tbody
-    - @products.each do |product|
-      %tr
-        %td= product.name
-        %td= product.pricing
-        %td= product.description
-        %td= product.user
-        %td= link_to 'Show', product
-        %td= link_to 'Edit', edit_product_path(product)
-        %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
+-# %table
+-#     %thead
+-#         %tr
+-#             %th Name
+-#             %th Pricing
+-#             %th Description
+-#             %th User
+-#             %th
+-#             %th
+-#             %th
 
-%br
+-#     %tbody
+-#         - @products.each do |product|
+-#             %tr
+-#                 %td= product.name
+-#                 %td= product.pricing
+-#                 %td= product.description
+-#                 %td= product.user.email
+-#                 %td= link_to 'Show', product
+-#                 %td= link_to 'Edit', edit_product_path(product)
+-#                 %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
 
-= link_to 'New Product', new_product_path
+-# %br
+

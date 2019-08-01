@@ -2,10 +2,13 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   
+  # before_action SetProduct
+  
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
+    
   end
 
   # GET /products/1
@@ -14,7 +17,6 @@ class ProductsController < ApplicationController
     
     if user_signed_in? && current_user == @product.user && !params.has_key?(:client)
       @attachment = Attachment.new
-      
       render :admin
     end
   end

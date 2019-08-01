@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
     
     private
 
+	def set_contact
+		@contacto = Contacto.new
+	end
 	def set_shopping_cart
 		if cookies[:shopping_cart_id].blank?
 			@shopping_cart = ShoppingCart.create!(ip: request.remote_ip)

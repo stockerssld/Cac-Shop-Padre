@@ -1,0 +1,21 @@
+#exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", role: "dialog", tabindex: "-1"}
+    .modal-dialog{role: "document"}
+        .modal-content
+            .modal-header
+                %h5#exampleModalLabel.modal-title Contactanos
+                %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+                %span{"aria-hidden" => "true"} ×
+            .modal-body
+                Telefono:  +527721534945: 
+                %a{href: "tel:+527721534945"} Llamar ahora
+                %br
+                Correo: cactaceas@protonmial.com 
+                %a{href: "mailto:cactaceas@protonmial.com"} Enviar Correo ahora
+                %br
+                Whatsapp: +527721534945
+                %a{href:"https://api.whatsapp.com/send?phone=+527721534945"}Enviar Mensaje
+                %a{href:"http://www.facebook.com/Cacshop"}Follow me on facebook
+            .modal-footer
+                %button.btn.btn-secondary{"data-dismiss" => "modal", type: "button"} Cerrar
+%button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", type: "button"}
+    Vias de contacto

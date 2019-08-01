@@ -52,3 +52,8 @@ $(function(){
       reader.readAsDataURL(file);
     });
   });
+
+
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+  })

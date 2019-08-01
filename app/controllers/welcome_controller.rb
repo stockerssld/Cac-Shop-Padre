@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+    @products = Product.all
   end
 
   def unregistered
@@ -12,5 +13,7 @@ class WelcomeController < ApplicationController
 
   def about
         
+  end
+  def contactanos
   end
 end
