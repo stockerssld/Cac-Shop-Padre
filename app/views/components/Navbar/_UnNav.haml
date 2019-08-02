@@ -16,6 +16,8 @@
         %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "#", role: "button"}
           Ver mas
         .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+          = link_to ordenes_path, class:"dropdown-item"   do
+            Ordenes
           = link_to "", class:"dropdown-item"   do
             Ofertas
           = link_to "",class:"dropdown-item"   do

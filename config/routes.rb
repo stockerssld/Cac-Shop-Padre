@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post "/pagar", to: "payments#create"
   get "/checkout", to: "payments#checkout"
 
+  get "/ordenes", to: "ordenes#index"
+
   authenticated :user do
     root to: "welcome#index"
   end

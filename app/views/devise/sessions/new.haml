@@ -1,42 +1,26 @@
-
 .container{style: "padding-top: 5%"}
   .box
-    %h3.subtitle.is-3{style: "text-align: center"} Log in
+    %center
+      %h2 Iniciar Sesión
     %hr/
-    %div{style: "text-align-last: center"}
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        .field
-          = f.label :email, class:"subtitle is-5", placeholder: "Email"
-          %br/
-          %p.control.has-icons-left.has-icons-right
-            = f.email_field :email, autofocus: true, autocomplete: "email"
-            %span.icon.is-small.is-left
-              %i.fas.fa-envelope
-            %span.icon.is-small.is-right
-              %i.fas.fa-check
-        .field
-          = f.label :password, class:"subtitle is-5"
-          %br/
-          = f.password_field :password, autocomplete: "current-password"
-        - if devise_mapping.rememberable?
-          .field
-            = f.check_box :remember_me
-            = f.label :remember_me
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field.form-group
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control"
+      .field.form-group
+        = f.label :password
+        %br/
+        = f.password_field :password, autocomplete: "current-password", class:"form-control"
+      - if devise_mapping.rememberable?
+        .field.form-group
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .actions
         .columns
           .column{style: "text-align-last: right;"}
-            .actions
-              = f.submit "Log in", class:"button is-success"
-          .column{style: "text-align-last: left;"}
-            = render "devise/shared/links"
-.field
-  %p.control.has-icons-left.has-icons-right
-    %input.input{placeholder: "Email", type: "email"}/
-    %span.icon.is-small.is-left
-      %i.fas.fa-envelope
-    %span.icon.is-small.is-right
-      %i.fas.fa-check
-.field
-  %p.control.has-icons-left
-    %input.input{placeholder: "Password", type: "password"}/
-    %span.icon.is-small.is-left
-      %i.fas.fa-lock
+            = f.submit "Log in", class:"btn btn-success"
+        
+          = render "devise/shared/links"
+
+
