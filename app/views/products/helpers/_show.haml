@@ -1,0 +1,125 @@
+-# %button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", type: "button"}
+-#     Ver producto
+
+
+
+-# #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", role: "dialog", tabindex: "-1"}
+-#     .modal-dialog{role: "document"}
+-#         .modal-content
+-#             .modal-header
+-#                 = @product.name
+-#                 %h5#exampleModalLabel.modal-title Contactanos
+-#                 %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+-#                 %span{"aria-hidden" => "true"} ×
+-#             .modal-body
+-#                 Telefono:  +ay527721534945: 
+-#                 %a{href: "tel:+527721534945"} Llamar ahora
+-#                 %br
+-#                 Correo: cactaceas@protonmial.com 
+-#                 %a{href: "mailto:cactaceas@protonmial.com"} Enviar Correo ahora
+-#                 %br
+-#                 Whatsapp: +527721534945
+-#                 %a{href:"https://api.whatsapp.com/send?phone=+527721534945"}Enviar Mensaje
+-#                 %a{href:"http://www.facebook.com/Cacshop"}Follow me on facebook
+-#             .modal-footer
+-#                 %button.btn.btn-secondary{"data-dismiss" => "modal", type: "button"} Cerrarp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-#                 -# %body.container
+-# -#   .modal.is-active
+-# -#     .modal-background
+-# -#     .modal-card
+-# -#       %header.modal-card-head
+-# -#         %p.modal-card-title 
+-# -#           = @product.name
+-# -#         %button.delete{"aria-label" => "close"}
+-# -#       %section.modal-card-body
+-# -#         .columns
+-# -#           .column(style="text-align: center")
+-# -#             %figure.image
+-# -#               %center
+-# -#                 =image_tag @product.avatar.url, :style=>"height:100%; width: 100%;"
+            
+-# -#           .column
+-# -#             %h4.subtitle.is-4
+-# -#               Descripción:
+-# -#               = @product.description
+-# -#             %h4.subtitle.is-4
+-# -#               Precio:
+-# -#               %span
+-# -#                 ="$#{@product.pricing}"
+-# -#             %h4.subtitle.is-4
+-# -#               categoria:
+-# -#               =@product.category.name
+              
+-# -#               -# = render(:partial => "in_shopping_carts/form", product: @product )      
+-# -#       %footer.modal-card-foot  
+-# -#         = render 'in_shopping_carts/form', product: @product
+
+-#         // %button.button.is-success Agregar al carrito
+-#         // %button.button Cancelar
+-#         -# = link_to request.env["HTTP_REFERER"],class:"button is-info" do
+-#         -#   Regresar
+-# // .container
+-# //   .box
+-# //     .center(style="text-align: center")
+-# //       %h1.title
+-# //         = @product.name
+-# //     %section.section
+-# //       .columns
+-# //         .column(style="text-align: center")
+-# //           %figure.image
+-# //             %center
+-# //               =image_tag @product.avatar.url, :style=>"height:100%; width: 50%;"
+          
+-# //         .column
+-# //           %h4.subtitle.is-4
+-# //             =@product.user.email
+-# //           %h4.subtitle.is-4
+-# //             Precio:
+-# //             %span
+-# //               ="$#{@product.pricing}"
+-# //           %h4.subtitle.is-4
+-# //             Archivos:
+-# //             %span 20
+-# //           %h4.subtitle.is-4
+-# //             Tamaño:
+-# //             %span "2gb"
+-# //           -# = render(:partial => "in_shopping_carts/form", product: @product )      
+-# //           = render 'in_shopping_carts/form', product: @product
+-# //     %section.section
+-# //       .container
+-# //         %h1.title Descripción
+-# //         %br
+-# //         %h2.subtitle
+-# //           =@product.description
+-# //   -# %p#notice= notice
+
+-# // -# %p
+-# // -#   %b Name:
+-# // -#   = @product.name
+-# // -# %p
+-# // -#   %b Pricing:
+-# // -#   = @product.pricing
+-# // -# %p
+-# // -#   %b Description:
+-# // -#   = @product.description
+-# // -# %p
+-# // -#   %b User:
+-# // -#   = @product.user
+
+-# // -# = link_to 'Edit', edit_product_path(@product)
+-# // -# \|
+-# // -# = link_to 'Back', products_path

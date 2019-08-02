@@ -5,9 +5,9 @@
     .container
         %center.box
             .columns
-                .column.is-four-fifths
-                    %h1.title Nuestros productos
+                -# .column.is-four-fifths
                 .column
+                    %h1.title Nuestros productos
                     -# = link_to root_path, class:"button is-info" do
                         Contactanos
                     -# = render(:partial => "components/helpers/modal")        
@@ -30,6 +30,7 @@
                                     .container{  style:"word-wrap: break-word;"}
                                         %p.crop-text-1
                                             = product.description
+                                        = render(:partial => "products/helpers/show")
                                         =link_to product_path(product, client:true),class: "button is-success" do
                                             Ver Producto
                     - else

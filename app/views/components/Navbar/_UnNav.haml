@@ -1,34 +1,31 @@
-%nav.navbar{"aria-label" => "main navigation", :role => "navigation", style:"background:#2f9e59; border-bottom:2px solid #29894e"}
-  .navbar-brand
-    = link_to root_path, class:"navbar-item" do
-      %img{:height => "28", :src => "https://bulma.io/images/bulma-logo.png", :width => "112"}/
-    %a.navbar-burger.burger{"aria-expanded" => "false", "aria-label" => "menu", "data-target" => "navbarShop", :role => "button"}
-      %span{"aria-hidden" => "true"}
-      %span{"aria-hidden" => "true"}
-      %span{"aria-hidden" => "true"}
-  #navbarShop.navbar-menu
-    .navbar-start
-      = link_to root_path, class:"navbar-item" do
-        Home
-      = link_to about_path, class:"navbar-item" do
-        Acerca de Nosotros
-      .navbar-item.has-dropdown.is-hoverable
-        %a.navbar-link
-          Ver más
-        .navbar-dropdown
-          = link_to "",  class:"navbar-item" do
+%nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-success
+  = link_to root_path, class:"navbar-item" do
+    %img{:height => "28", :src => "https://bulma.io/images/bulma-logo.png", :width => "112"}/
+  %button.navbar-toggler{"aria-controls" => "navbarCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarCollapse", "data-toggle" => "collapse", type: "button"}
+    %span.navbar-toggler-icon
+  #navbarCollapse.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item
+        = link_to root_path, class:"nav-link" do
+          Home
+          %span.sr-only (current)
+      %li.nav-item
+        = link_to about_path, class:"nav-link" do
+          Acerca de Nosotros
+      %li.nav-item.dropdown
+        %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "#", role: "button"}
+          Ver mas
+        .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+          = link_to "", class:"dropdown-item"   do
             Ofertas
-          = link_to "",  class:"navbar-item" do
+          = link_to "",class:"dropdown-item"   do
             Descuentos
-          = link_to carrito_path, class:"navbar-item" do
+          = link_to carrito_path,class:"dropdown-item" do
             %i
             Mi Carrito
             (
             = @shopping_cart.products.count
             )
-          %hr.navbar-divider/
-          %a.navbar-item
-            Report an issue
     .navbar-end
       = link_to('Crear Cuenta', new_user_registration_path, class:"navbar-item")
       = link_to('Iniciar Sesión', new_user_session_path, class:"navbar-item")
