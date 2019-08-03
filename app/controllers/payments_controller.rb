@@ -20,36 +20,19 @@ class PaymentsController < ApplicationController
 
   
   def create
-    payment = Payment.new({
-      :intent =>  "sale",
-      :payer =>  {
-        :payment_method =>  "paypal" },
-      :redirect_urls => {
-        :return_url => "http://192.168.0.109:3000//checkout",
-        :cancel_url => "http://192.168.0.109:3000/" },
-      :transactions =>  [{
-        :item_list => {
-          :items => [{
-            :name => "item",
-            :sku => :item,
-            :price =>  (@shopping_cart.total),
-            :currency => "MXN",
-            :quantity => 1 }]},
-        :amount =>  {
-          :total =>  @shopping_cart.total,
-          :currency =>  "MXN" },
-        :description =>  "This is the payment transaction description." }]})
-    
-    if payment.create
-      @my_payment = MyPayment.create!(paypal_id: payment.id,
+    paypal_helper = Stores::Paypal.new(shopping_cart: @shopping_cart,
+                                                      return_url: checkout_url,
+                                                      cancel_url: carrito_url)
+    if paypal_helper.process_payment.create
+      @my_payment = MyPayment.create!(paypal_id: paypal_helper.payment.id,
                                   ip: request.remote_ip,
-                                shopping_cart_id: cookies[:shopping_cart_id])
-      redirect_to payment.links.find{|v| v.method =="REDIRECT"}.href
+                                  shopping_cart_id: cookies[:shopping_cart_id])
+      redirect_to paypal_helper.payment.links.find{|v| v.method =="REDIRECT"}.href
     else
       
-      redirect_to root_url,  notice: payment.error
+      # redirect_to root_url,  notice: payment.error
     #   redirect_to payment.links.find{|v| v.method =="REDIRECT"}.href
-      # raise  payment.error.to_yaml
+      raise  paypal_helper.payment.error.to_yaml
     end
   end
 end
