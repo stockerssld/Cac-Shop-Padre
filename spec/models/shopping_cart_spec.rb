@@ -3,8 +3,8 @@
 # Table name: shopping_carts
 #
 #  id         :integer          not null, primary key
-#  status     :integer          default("default")
 #  ip         :string
+#  status     :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

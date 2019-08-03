@@ -366,7 +366,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aasm
+  aasm (~> 5.0, >= 5.0.5)
   annotate
   bootsnap (>= 1.1.0)
   bootstrap
