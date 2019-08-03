@@ -1,3 +1,11 @@
-Pagar con
-=button_to "/pagar", method: :post, class:"button is-warning" do
-    =image_tag "https://craftindustryalliance.org/wp-content/uploads/2019/04/PayPal_logo_logotype_emblem.png", style: "width:6rem;height:2rem;"
+%hr
+.columns
+    .column
+        
+        =button_to "/pagar", method: :post, class:"button is-warning" do
+            Pagar con
+            =image_tag "https://craftindustryalliance.org/wp-content/uploads/2019/04/PayPal_logo_logotype_emblem.png", style: "width:6rem;height:2rem;"
+    .column
+        -# =content_tag :button, class:"button is-warning" do
+        -#     Pagar con tarjeta
+        -#     =image_tag "https://craftindustryalliance.org/wp-content/uploads/2019/04/PayPal_logo_logotype_emblem.png", style: "width:6rem;height:2rem;"

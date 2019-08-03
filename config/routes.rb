@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   
   post "/pagar", to: "payments#create"
   get "/checkout", to: "payments#checkout"
-
+  get "/ok", to: "welcome#payment_succed"
   get "/ordenes", to: "ordenes#index"
 
   authenticated :user do

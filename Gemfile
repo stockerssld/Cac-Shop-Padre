@@ -22,6 +22,9 @@ gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 
 
 gem 'paypal-sdk-rest'
+gem 'credit_card_validator'
+
+
 gem 'paperclip' 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
