@@ -4,7 +4,7 @@
   "dependencies": {
     "aos": "^2.3.4",
     "bulmaswatch": "^0.7.2",
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.0"
   },
   "scripts": {
     "db": "rails db:drop && rails db:create && rails db:migrate && rails db:seed",
